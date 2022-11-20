@@ -1,42 +1,42 @@
 package Controle;
 
+import Visao.Principal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 
 public class ControleCadastroAtividades {
 
-    @FXML
-    private TextField nomeTextFIeld;
+  @FXML
+  private MenuButton activityMenuBar;
 
-    @FXML
-    private TextField cpfTextField;
+  @FXML
+  private TextField cpfTextField, emailTextField, nomeTextFIeld, senhaTextField;
 
-    @FXML
-    private TextField emailTextField;
+  @FXML
+  void activityOnActionMenuBar(ActionEvent event) {
 
-    @FXML
-    private TextField senhaTextField;
+  }
 
-    @FXML
-    void cadastrarButton(ActionEvent event) {
+  @FXML
+  void cadastrarButton(ActionEvent event) {
 
-    }
+  }
 
-    @FXML
-    void cadastrarImageButton(MouseEvent event) {
+  @FXML
+  void voltarButton(ActionEvent event) {
+    Principal.changeScreenOrganizadorOrganizarEventos(event);
+    activityMenuBar.setText("Tipo de atividade");
+  }
 
-    }
+  @FXML
+  void minicursoMenuItem(ActionEvent event) {
+    activityMenuBar.setText("Minicurso");
+  }
 
-    @FXML
-    void voltarButton(ActionEvent event) {
-
-    }
-
-    @FXML
-    void voltarImageButton(MouseEvent event) {
-
-    }
-
+  @FXML
+  void palestraMenuItem(ActionEvent event) {
+    activityMenuBar.setText("Palestra");
+  }
 }

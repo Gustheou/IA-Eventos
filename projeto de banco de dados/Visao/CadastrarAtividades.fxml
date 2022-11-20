@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="246.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controle.ControleCadastroAtividades">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="246.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controle.ControleCadastroAtividades">
    <children>
       <ImageView fitHeight="437.0" fitWidth="246.0" layoutY="-23.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -36,10 +36,10 @@
                   <Font name="Times New Roman Bold" size="14.0" />
                </font>
             </Label>
-            <MenuButton mnemonicParsing="false" prefHeight="10.0" prefWidth="240.0" text="Tipo de Atividade">
+            <MenuButton fx:id="activityMenuBar" mnemonicParsing="false" onAction="#activityOnActionMenuBar" prefHeight="10.0" prefWidth="240.0" text="Tipo de Atividade">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Palestra" />
-                  <MenuItem mnemonicParsing="false" text="Minicurso" />
+                  <MenuItem mnemonicParsing="false" onAction="#palestraMenuItem" text="Palestra" />
+                  <MenuItem mnemonicParsing="false" onAction="#minicursoMenuItem" text="Minicurso" />
                </items>
             </MenuButton>
             <Label prefHeight="29.0" prefWidth="57.0" text="Tema:  ">
@@ -122,7 +122,7 @@
                                     <Insets right="2.0" />
                                  </HBox.margin>
                               </Label>
-                              <ImageView fitHeight="34.0" fitWidth="64.0" onMouseClicked="#cadastrarImageButton" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="34.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../Imagens/certoVerde.png" />
                                  </image>
@@ -142,7 +142,7 @@
                         <Font size="16.0" />
                      </font>
                      <graphic>
-                        <ImageView fitHeight="37.0" fitWidth="35.0" onMouseClicked="#voltarImageButton" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="37.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Imagens/setaVerde.png" />
                            </image>
