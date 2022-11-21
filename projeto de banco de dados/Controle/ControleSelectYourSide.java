@@ -9,6 +9,20 @@ import javafx.scene.input.MouseEvent;
 
 public class ControleSelectYourSide {
 
+  // ControleSelectYourSide(){}
+
+  // private long cpf = 0;
+
+  // public long getCpf() {
+  //   return cpf;
+  // }
+
+  // public void setCpf(long cpf) {
+  //   this.cpf = cpf;
+  // }
+
+
+
   @FXML
   private RadioButton organizadorRadioButton;
 

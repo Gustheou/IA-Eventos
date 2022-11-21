@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="237.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controle.ControleLogin">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="237.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controle.ControleLogin">
    <children>
       <ImageView fitHeight="487.0" fitWidth="237.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -70,7 +70,7 @@
             <Font size="14.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="35.0" fitWidth="32.0" onMouseClicked="#eventosImageButton" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="35.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagens/lista.png" />
                </image>

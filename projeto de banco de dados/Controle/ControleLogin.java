@@ -4,7 +4,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent; 
+import javafx.scene.input.MouseEvent;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.swing.JOptionPane;
+
+import Banco.ConectaBanco;
 import Visao.Principal;
 
 public class ControleLogin {
@@ -15,22 +22,31 @@ public class ControleLogin {
   @FXML
   private PasswordField passwordTextField;
 
+  ConectaBanco cB = new ConectaBanco();
+
   @FXML
   void entrarButton(ActionEvent event) {
-    //Verificar se já tem cadastro
-    //Caso tenha, verificar se já foi selecionado a função dele (ouvinte/organizador)
-    //Se sim, mudar para a tela específica, senão:
-    Principal.changeScreenLoginSelectYourSide(event);
+    Long cpfDigitado = Long.parseLong(cpfTextField.getText().toString());
+    String passwordDigitada = passwordTextField.getText().toString();
+    try {
+      String query = "SELECT nome FROM iaeventos.usuarios where cpf = '"+cpfDigitado+"' AND password = '"+passwordDigitada+"'";
+      ResultSet operacao = cB.conectar().createStatement().executeQuery(query);
+      if (operacao.next()){
+        JOptionPane.showMessageDialog(null, "Seja bem vindo: "+ operacao.getString("nome"));
+        Principal.changeScreenLoginSelectYourSide(event);
+      } else {
+        JOptionPane.showMessageDialog(null, "Login ou senha incorretos");
+      }
+      operacao.close();
+    } catch (SQLException e) {
+      System.out.println("SQLException: " + e.getMessage());
+    }
+   
   }
 
   @FXML
   void esqueciSenhaButton(MouseEvent event) {
     Principal.changeScreenLoginEsqueceuSenha(event);
-  }
-
-  @FXML
-  void eventosImageButton(MouseEvent event) {
-
   }
 
   @FXML

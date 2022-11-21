@@ -1,6 +1,7 @@
 package Visao;
 
 import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -100,6 +101,10 @@ public class Principal extends Application {
   }
 
   public static void changeScreenLoginSelectYourSide(ActionEvent event) {
+    stage.setScene(telaSelectYourSide);
+  }
+
+  public static void changeScreenLoginSelectYourSide(MouseEvent event) {
     stage.setScene(telaSelectYourSide);
   }
 
