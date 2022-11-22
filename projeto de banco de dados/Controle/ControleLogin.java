@@ -30,13 +30,18 @@ public class ControleLogin {
     String passwordDigitada = passwordTextField.getText().toString();
     try {
       //Inserir no bd
-      String query = "SELECT nome FROM iaeventos.usuarios where cpf = '"+cpfDigitado+"' AND password = '"+passwordDigitada+"'";
+      String query = "SELECT nome, cargo FROM iaeventos.usuarios where cpf = '"+cpfDigitado+"' AND password = '"+passwordDigitada+"'";
       ResultSet operacao = cB.conectar().createStatement().executeQuery(query);
       if (operacao.next()){
-        JOptionPane.showMessageDialog(null, "Seja bem vindo: "+ operacao.getString("nome"));
-        ControleSelectYourSide csY = new ControleSelectYourSide(10);
-        csY.setCpf(10);
-        Principal.changeScreenLoginSelectYourSide(event);
+        JOptionPane.showMessageDialog(null, "Seja bem vindo(a): "+ operacao.getString("nome"));
+        if (operacao.getString("cargo").equals("Ouvinte")) {
+          Principal.changeScreenSelectYourSideOuvinte(event);
+        }else if (operacao.getString("cargo").equals("Organizador")){
+          Principal.changeScreenSelectYourSideOrganizador(event);
+        }else {
+          Principal.changeScreenLoginSelectYourSide(event);
+          Principal.cpf = cpfDigitado;
+        }
       } else {
         JOptionPane.showMessageDialog(null, "Login ou senha incorretos");
       }

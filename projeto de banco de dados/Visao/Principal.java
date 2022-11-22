@@ -32,6 +32,8 @@ public class Principal extends Application {
 
   private static Scene telaSelectYourSide;
 
+  public static long cpf;
+
   public static void main(String[] args) {
     launch(args);
   }// Fim do metodo main
@@ -58,7 +60,7 @@ public class Principal extends Application {
 
     Parent fxmlTelaInscreverEmEventos = FXMLLoader.load(getClass().getResource("seInscreverEmEvento.fxml"));
     telaInscreverEmEventos = new Scene(fxmlTelaInscreverEmEventos);
-    Parent fxmltelaMostrarEventos = FXMLLoader.load(getClass().getResource("MostrarEventos.fxml"));
+    Parent fxmltelaMostrarEventos = FXMLLoader.load(getClass().getResource("MostrarTodosEventos.fxml"));
     telaMostrarEventos = new Scene(fxmltelaMostrarEventos);
     Parent fxmltelaCriarEventos = FXMLLoader.load(getClass().getResource("CriarEvento.fxml"));
     telaCriarEventos = new Scene(fxmltelaCriarEventos);
@@ -109,6 +111,10 @@ public class Principal extends Application {
   }
 
   public static void changeScreenSelectYourSideOuvinte(ActionEvent event) {
+    stage.setScene(telaPosLoginOuvinte);
+  }
+
+  public static void changeScreenSelectYourSideOuvinte(MouseEvent event) {
     stage.setScene(telaPosLoginOuvinte);
   }
 

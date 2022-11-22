@@ -30,17 +30,6 @@ public class ControleNovaSenha {
 
   @FXML
   void prosseguirImageButton(MouseEvent event) {
-    //Cadastrar e voltar para o login
-    // String senhaDigitada = novaSenhaTextField.getText().toString();
-    // String senhaConfirmacao = confirmarSenhaTextField.getText().toString();
-    // if (senhaDigitada.equals(senhaConfirmacao)){
-    //   if (verificacao()){
-    //     Principal.changeScreenLogin(event);
-    //   }
-    // } else {
-    //   confirmarSenhaTextField.setText("");
-    //   confirmarSenhaTextField.setPromptText("Senha não condizente");
-    // }
     String senhaDigitada = novaSenhaTextField.getText().toString();
     String senhaConfirmacao = confirmarSenhaTextField.getText().toString();
     if (senhaDigitada.equals(senhaConfirmacao)){
@@ -49,19 +38,14 @@ public class ControleNovaSenha {
         long cpfDigitado = Long.parseLong(cpfTextField.getText().toString());
         String query = "UPDATE iaeventos.usuarios SET password = '"+novaSenhaTextField.getText().toString()+"' WHERE cpf = '"+cpfDigitado+"'";
         ResultSet operacao = cB.conectar().createStatement().executeQuery(query);
-        if (operacao.next()){
-          JOptionPane.showMessageDialog(null, "Senha modificada com sucesso");
-          Principal.changeScreenLoginSelectYourSide(event);
-        } else {
-          cpfTextField.setText("");
-          novaSenhaTextField.setText("");
-          confirmarSenhaTextField.setText(""); 
-          JOptionPane.showMessageDialog(null,"Usuário não encontrado.");
-        }
         operacao.close();
       } catch (SQLException e) {
         System.out.println("SQLException: " + e.getMessage());
       }
+      cpfTextField.setText("");
+      novaSenhaTextField.setText("");
+      confirmarSenhaTextField.setText("");  
+      Principal.changeScreenLogin(event);
     } else {
       novaSenhaTextField.setText("");
       confirmarSenhaTextField.setText("");
@@ -79,14 +63,14 @@ public class ControleNovaSenha {
         long cpfDigitado = Long.parseLong(cpfTextField.getText().toString());
         String query = "UPDATE iaeventos.usuarios SET password = '"+novaSenhaTextField.getText().toString()+"' WHERE cpf = '"+cpfDigitado+"'";
         ResultSet operacao = cB.conectar().createStatement().executeQuery(query);
-        if (operacao.next()){
-          JOptionPane.showMessageDialog(null, "Senha modificada com sucesso");
-          Principal.changeScreenLoginSelectYourSide(event);
-        } 
         operacao.close();
       } catch (SQLException e) {
         System.out.println("SQLException: " + e.getMessage());
       }
+      cpfTextField.setText("");
+      novaSenhaTextField.setText("");
+      confirmarSenhaTextField.setText("");  
+      Principal.changeScreenLogin(event);
     } else {
       novaSenhaTextField.setText("");
       confirmarSenhaTextField.setText("");
@@ -96,16 +80,17 @@ public class ControleNovaSenha {
 
   @FXML
   void voltarImageButton(MouseEvent event) {
+    cpfTextField.setText("");
+    novaSenhaTextField.setText("");
+    confirmarSenhaTextField.setText("");  
     Principal.changeScreenLogin(event);
   }
 
   @FXML
   void voltarLabelButton(MouseEvent event) {
+    cpfTextField.setText("");
+    novaSenhaTextField.setText("");
+    confirmarSenhaTextField.setText(""); 
     Principal.changeScreenLogin(event);
-  }
-
-  public boolean verificacao(){
-    
-    return false;
   }
 }

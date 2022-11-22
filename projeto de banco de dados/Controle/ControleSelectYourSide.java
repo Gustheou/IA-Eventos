@@ -1,5 +1,9 @@
 package Controle;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import Banco.ConectaBanco;
 import Visao.Principal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,31 +13,10 @@ import javafx.scene.input.MouseEvent;
 
 public class ControleSelectYourSide {
 
-  private long cpf;
-
-  public ControleSelectYourSide(){}
-
-  public ControleSelectYourSide(long i) {
-    setCpf(i);
-  }
-
-  
-
-  public long getCpf() {
-    return cpf;
-  }
-
-  public void setCpf(long cpf) {
-    this.cpf = cpf;
-  }
-
-
+  ConectaBanco cB = new ConectaBanco();
 
   @FXML
-  private RadioButton organizadorRadioButton;
-
-  @FXML
-  private RadioButton ouvinteRadioButton;
+  private RadioButton organizadorRadioButton, ouvinteRadioButton;
 
   @FXML
   private ToggleGroup sideRadioButton;
@@ -42,10 +25,27 @@ public class ControleSelectYourSide {
   void prosseguirButton(ActionEvent event) {
     if (organizadorRadioButton.isSelected()){
       //Setar no bd o que foi selecionado
+      try {
+        //Inserir no bd
+        String query = "update iaeventos.usuarios set cargo = 'Organizador' where cpf = '"+Principal.cpf+"'";
+        ResultSet operacao = cB.conectar().createStatement().executeQuery(query);
+        operacao.close();
+      } catch (SQLException e) {
+        System.out.println("SQLException: " + e.getMessage());
+      }
       Principal.changeScreenSelectYourSideOrganizador(event);
     }else if (ouvinteRadioButton.isSelected()){
       //Setar no bd o que foi selecionado
-      System.out.println("Numero enviado: "+ getCpf());
+      try {
+        //Inserir no bd
+        String query = "update iaeventos.usuarios set cargo = 'Ouvinte' where cpf = '"+Principal.cpf+"'";
+        ResultSet operacao = cB.conectar().createStatement().executeQuery(query);
+        operacao.close();
+      } catch (SQLException e) {
+        System.out.println("SQLException: " + e.getMessage());
+      }
+
+      System.out.println("Numero enviado: "+ Principal.cpf);
       Principal.changeScreenSelectYourSideOuvinte(event);
     }
   }
