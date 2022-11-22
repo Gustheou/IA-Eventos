@@ -9,17 +9,23 @@ import javafx.scene.input.MouseEvent;
 
 public class ControleSelectYourSide {
 
-  // ControleSelectYourSide(){}
+  private long cpf;
 
-  // private long cpf = 0;
+  public ControleSelectYourSide(){}
 
-  // public long getCpf() {
-  //   return cpf;
-  // }
+  public ControleSelectYourSide(long i) {
+    setCpf(i);
+  }
 
-  // public void setCpf(long cpf) {
-  //   this.cpf = cpf;
-  // }
+  
+
+  public long getCpf() {
+    return cpf;
+  }
+
+  public void setCpf(long cpf) {
+    this.cpf = cpf;
+  }
 
 
 
@@ -39,6 +45,7 @@ public class ControleSelectYourSide {
       Principal.changeScreenSelectYourSideOrganizador(event);
     }else if (ouvinteRadioButton.isSelected()){
       //Setar no bd o que foi selecionado
+      System.out.println("Numero enviado: "+ getCpf());
       Principal.changeScreenSelectYourSideOuvinte(event);
     }
   }

@@ -29,10 +29,13 @@ public class ControleLogin {
     Long cpfDigitado = Long.parseLong(cpfTextField.getText().toString());
     String passwordDigitada = passwordTextField.getText().toString();
     try {
+      //Inserir no bd
       String query = "SELECT nome FROM iaeventos.usuarios where cpf = '"+cpfDigitado+"' AND password = '"+passwordDigitada+"'";
       ResultSet operacao = cB.conectar().createStatement().executeQuery(query);
       if (operacao.next()){
         JOptionPane.showMessageDialog(null, "Seja bem vindo: "+ operacao.getString("nome"));
+        ControleSelectYourSide csY = new ControleSelectYourSide(10);
+        csY.setCpf(10);
         Principal.changeScreenLoginSelectYourSide(event);
       } else {
         JOptionPane.showMessageDialog(null, "Login ou senha incorretos");
@@ -41,12 +44,19 @@ public class ControleLogin {
     } catch (SQLException e) {
       System.out.println("SQLException: " + e.getMessage());
     }
-   
+    //Verificar se já tem cadastro
+    //Caso tenha, verificar se já foi selecionado a função dele (ouvinte/organizador)
+    //Se sim, mudar para a tela específica, senão:
   }
 
   @FXML
   void esqueciSenhaButton(MouseEvent event) {
     Principal.changeScreenLoginEsqueceuSenha(event);
+  }
+
+  @FXML
+  void eventosImageButton(MouseEvent event) {
+
   }
 
   @FXML
