@@ -30,6 +30,31 @@ public class ControleCadastroPalestrante {
   void cadastrarPalestranteButton(ActionEvent event) {
     String nome = nomeTextFIeld.getText().toString();
     //Vai ser uma nova tabela?
+    try {
+      String nomeDoEvento = eventosMenuButton.getText().toString();
+      long cpf = Long.parseLong(cpfTextField.getText().toString());
+      String tema = temaTextFIeld.getText().toString();
+  
+      if (nome.equals("") || String.valueOf(cpf).equals("") || (String.valueOf(cpf).length() != 11) || tema.equals("")){
+        JOptionPane.showMessageDialog(null, "          Error Code: 604\n\nCadastro não foi efetuado. (′⌒`)\nMotivo: Informações incompletas.");
+      } else {
+        try {
+          //Inserir no bd
+          String query = "INSERT INTO iaeventos.palestrante (nome, cpf, nome_evento, tema) VALUES ('"+nome+"', '"+cpf+"', '"+nomeDoEvento+"', '"+tema+"')";
+          ResultSet operacao = cB.conectar().createStatement().executeQuery(query);
+          operacao.close();
+        } catch (SQLException e) {
+          System.out.println("SQLException: " + e.getMessage());
+        }
+        nomeTextFIeld.setText("");
+        cpfTextField.setText("");
+        eventosMenuButton.setText("Selecionar Evento");
+        Principal.changeScreenOrganizadorOrganizarEventos(event);
+      }
+    } catch (NumberFormatException  nFE) {
+      cpfTextField.setText("");
+      cpfTextField.setPromptText("Digite somente números");
+    }
   }
 
   @FXML

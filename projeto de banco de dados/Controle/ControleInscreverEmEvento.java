@@ -25,12 +25,13 @@ public class ControleInscreverEmEvento {
   ConectaBanco cB = new ConectaBanco();
   private int eventoEscolhido;
 
-  ArrayList nomeDosEventos = new ArrayList<>();
-  ArrayList apenasNome = new ArrayList<>();
+ 
 
   @FXML
   void eventOnActionMenuBar(MouseEvent event) {
     try {
+      ArrayList nomeDosEventos = new ArrayList<>();
+      ArrayList apenasNome = new ArrayList<>();
       //Inserir no bd
       String query = "SELECT * FROM iaeventos.eventos";
       ResultSet operacao = cB.conectar().createStatement().executeQuery(query);
@@ -69,7 +70,7 @@ public class ControleInscreverEmEvento {
   void inscreverButton(MouseEvent event) {
     try {
       String nome = nomeTextFIeld.getText().toString();
-      String nomeDoEvento = apenasNome.get(eventoEscolhido).toString();
+      String nomeDoEvento = eventMenuBar.getText().toString();
       long cpf = Long.parseLong(cpfTextField.getText().toString());
   
       if (nome.equals("") || String.valueOf(cpf).equals("") || (String.valueOf(cpf).length() != 11) || nomeDoEvento.equals("Selecionar Evento")){
@@ -96,6 +97,9 @@ public class ControleInscreverEmEvento {
 
   @FXML
   void voltarButton(ActionEvent event) {
+    nomeTextFIeld.setText("");
+    cpfTextField.setText("");
+    eventMenuBar.setText("Selecionar Evento");
     Principal.changeScreenSelectYourSideOuvinte(event);
   }
 

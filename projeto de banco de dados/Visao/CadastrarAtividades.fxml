@@ -36,7 +36,7 @@
                   <Font name="Times New Roman Bold" size="14.0" />
                </font>
             </Label>
-            <MenuButton fx:id="activityMenuBar" mnemonicParsing="false" onAction="#activityOnActionMenuBar" prefHeight="10.0" prefWidth="240.0" text="Tipo de Atividade">
+            <MenuButton fx:id="activityMenuBar" mnemonicParsing="false" prefHeight="10.0" prefWidth="240.0" text="Tipo de Atividade">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#palestraMenuItem" text="Palestra" />
                   <MenuItem mnemonicParsing="false" onAction="#minicursoMenuItem" text="Minicurso" />
@@ -47,7 +47,7 @@
                   <Font name="Times New Roman Bold" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="nomeTextFIeld" prefHeight="27.0" prefWidth="266.0" style="-fx-border-color: white; -fx-background-color: #e0e0e0; -fx-background-radius: 10;">
+            <TextField fx:id="temaTextField" prefHeight="27.0" prefWidth="266.0" style="-fx-border-color: white; -fx-background-color: #e0e0e0; -fx-background-radius: 10;">
                <VBox.margin>
                   <Insets bottom="5.0" />
                </VBox.margin>
@@ -60,7 +60,7 @@
                   <Font name="Times New Roman Bold" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="cpfTextField" prefHeight="27.0" prefWidth="240.0" style="-fx-border-color: white; -fx-background-color: #e0e0e0; -fx-background-radius: 10;">
+            <TextField fx:id="descricaoTextField" prefHeight="27.0" prefWidth="240.0" style="-fx-border-color: white; -fx-background-color: #e0e0e0; -fx-background-radius: 10;">
                <VBox.margin>
                   <Insets bottom="5.0" />
                </VBox.margin>
@@ -73,24 +73,17 @@
                   <Font name="Times New Roman Bold" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="emailTextField" style="-fx-border-color: white; -fx-background-color: #e0e0e0; -fx-background-radius: 10;">
-               <VBox.margin>
-                  <Insets bottom="5.0" />
-               </VBox.margin>
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor>
-            </TextField>
+            <MenuButton fx:id="palestranteMenuButton" mnemonicParsing="false" onMouseClicked="#selecionarPalestranteOnClicked" prefHeight="25.0" prefWidth="224.0" text="Selecionar Palestrante" />
             <Label prefHeight="21.0" prefWidth="110.0" text="Nome do Evento:">
                <font>
                   <Font name="Times New Roman Bold" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="senhaTextField" accessibleRole="PASSWORD_FIELD" style="-fx-border-color: white; -fx-background-color: #e0e0e0; -fx-background-radius: 10;">
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor>
-            </TextField>
+            <AnchorPane>
+               <children>
+                  <MenuButton fx:id="eventoMenuButton" mnemonicParsing="false" onMouseClicked="#selecionarEventoOnClicked" prefHeight="25.0" prefWidth="224.0" text="Selecionar Evento" />
+               </children>
+            </AnchorPane>
          </children>
          <padding>
             <Insets bottom="15.0" top="15.0" />

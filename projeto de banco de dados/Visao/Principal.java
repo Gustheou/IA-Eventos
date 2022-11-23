@@ -32,6 +32,11 @@ public class Principal extends Application {
 
   private static Scene telaSelectYourSide;
 
+  private static Scene telaMostrarPalestrante;
+  private static Scene telaMostrarMonitor;
+  private static Scene telaMostrarAtividades;
+  private static Scene telaMostrarOrganizador;
+
   public static long cpf;
 
   public static void main(String[] args) {
@@ -66,6 +71,15 @@ public class Principal extends Application {
     telaCriarEventos = new Scene(fxmltelaCriarEventos);
     Parent fxmltelaOrganizarEvento = FXMLLoader.load(getClass().getResource("OrganizarEvento.fxml"));
     telaOrganizarEvento = new Scene(fxmltelaOrganizarEvento);
+
+    Parent fxmltelaMostrarPalestrante = FXMLLoader.load(getClass().getResource("MostrarPalestrantes.fxml"));
+    telaMostrarPalestrante = new Scene (fxmltelaMostrarPalestrante);
+    Parent fxmltelaMostrarMonitor = FXMLLoader.load(getClass().getResource("MostrarMonitor.fxml"));
+    telaMostrarMonitor = new Scene (fxmltelaMostrarMonitor);
+    Parent fxmltelaMostrarAtividades = FXMLLoader.load(getClass().getResource("MostrarAtividades.fxml"));
+    telaMostrarAtividades = new Scene (fxmltelaMostrarAtividades);
+    Parent fxmltelaMostrarOrganizador = FXMLLoader.load(getClass().getResource("MostrarOrganizadores.fxml"));
+    telaMostrarOrganizador = new Scene (fxmltelaMostrarOrganizador);
 
     Parent fxmltelaNovaSenha = FXMLLoader.load(getClass().getResource("EsqueciSenha.fxml"));
     telaNovaSenha = new Scene(fxmltelaNovaSenha);
@@ -160,5 +174,21 @@ public class Principal extends Application {
 
   public static void changeScreenOrganizarEventosCadastrarPalestrante(MouseEvent event) {
     stage.setScene(telaCadastroPalestrante);
+  }
+
+  public static void changeScreenMostrarPalestrante(MouseEvent event) {
+    stage.setScene(telaMostrarPalestrante);
+  }
+
+  public static void changeScreenMostrarMonitor(MouseEvent event) {
+    stage.setScene(telaMostrarMonitor);
+  }
+
+  public static void changeScreenMostrarAtividades(MouseEvent event) {
+    stage.setScene(telaMostrarAtividades);
+  }
+
+  public static void changeScreenMostrarOrganizador(MouseEvent event) {
+    stage.setScene(telaMostrarOrganizador);
   }
 }

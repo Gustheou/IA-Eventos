@@ -20,7 +20,7 @@ public class ControleOrganizarEventos {
       Principal.changeScreenOrganizarEventosCadastrarAtividades(event);
       cadastrarRadioButton.setSelected(false);
     } else if (exibirRadioButton.isSelected()) {
-      // fazer tela para perguntar qual evento e selecionar as tuplas correspondentes
+      Principal.changeScreenMostrarAtividades(event);
       exibirRadioButton.setSelected(false);
     }
   }
@@ -31,7 +31,7 @@ public class ControleOrganizarEventos {
       Principal.changeScreenOrganizarEventosCadastrarMonitor(event);
       cadastrarRadioButton.setSelected(false);
     } else if (exibirRadioButton.isSelected()) {
-      // fazer tela para perguntar qual evento e selecionar as tuplas correspondentes
+      Principal.changeScreenMostrarMonitor(event);
       exibirRadioButton.setSelected(false);
     }
   }
@@ -42,7 +42,7 @@ public class ControleOrganizarEventos {
       Principal.changeScreenOrganizarEventosCadastrarOrganizador(event);
       cadastrarRadioButton.setSelected(false);
     } else if (exibirRadioButton.isSelected()) {
-      // fazer tela para perguntar qual evento e selecionar as tuplas correspondentes
+      Principal.changeScreenMostrarOrganizador(event);
       exibirRadioButton.setSelected(false);
     }
   }
@@ -53,7 +53,7 @@ public class ControleOrganizarEventos {
       Principal.changeScreenOrganizarEventosCadastrarPalestrante(event);
       cadastrarRadioButton.setSelected(false);
     } else if (exibirRadioButton.isSelected()) {
-      // fazer tela para perguntar qual evento e selecionar as tuplas correspondentes
+      Principal.changeScreenMostrarPalestrante(event);
       exibirRadioButton.setSelected(false);
     }
   }

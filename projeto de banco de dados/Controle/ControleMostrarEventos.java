@@ -31,7 +31,6 @@ public class ControleMostrarEventos {
       //Inserir no bd
       String query = "SELECT * FROM iaeventos.eventos";
       ResultSet operacao = cB.conectar().createStatement().executeQuery(query);
-      String nome;
       while (operacao.next()){
   
         apenasNome.add(operacao.getString("nome"));//Usar esse array para exibir tanto no menuButton quanto inserir no bd
