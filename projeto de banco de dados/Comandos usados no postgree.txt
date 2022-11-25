@@ -1,0 +1,56 @@
+create schema iaeventos;
+
+create table iaeventos.usuarios(
+    	nome varchar(30) not null,
+    	cpf numeric(11) not null primary key,
+    	password varchar(30) not null,
+ 	email varchar(50),
+ 	cargo varchar(30)
+);
+
+create table iaeventos.eventos(
+	nome varchar(50) not null primary key,
+	data_inicial date,
+	data_final date,
+	hora_inicio numeric (4),
+	carga_horaria_total numeric (4),
+	local varchar(50)
+);
+
+create table iaeventos.inscreverNoEvento(
+        nome varchar(50) not null,
+        cpf numeric (11) not null primary key,
+        nome_evento varchar(50),
+        foreign key (nome_evento) references iaeventos.eventos (nome)
+);
+
+create table iaeventos.palestrante(
+	nome varchar(50) not null,
+	cpf numeric(11) not null primary key,
+	nome_evento varchar(50),
+	tema varchar(50),
+	foreign key (nome_evento) references iaeventos.eventos (nome)
+);
+
+create table iaeventos.organizador(
+	nome varchar(50) not null,
+	cpf numeric(11) not null primary key,
+	nome_evento varchar(50),
+	foreign key (nome_evento) references iaeventos.eventos (nome)
+);
+
+create table iaeventos.monitor(
+	nome varchar(50) not null,
+	cpf numeric(11) not null primary key,
+	nome_evento varchar(50),
+	foreign key (nome_evento) references iaeventos.eventos (nome)
+);
+
+create table iaeventos.atividades(
+	atividade varchar(30),
+	tema varchar(50) not null,
+	palestrante varchar(50),
+	evento varchar(50),
+	descricao varchar(100),
+	foreign key (evento) references iaeventos.eventos (nome)
+);
