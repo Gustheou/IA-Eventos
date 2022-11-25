@@ -3,10 +3,19 @@
 ## Descrição:
  Esse sistema foi pensado para gerenciar eventos, de modo a possibilitar o cadastramento dos participantes, que, no geral, são classificados entre:
  - Ouvintes - A audiência do evento
- - Palestrantes - Que podem ministrar apresentações ou minicursos. 
+ - Organizadores - Responsáveis por cadastrarem eventos, atividades, monitores e outros organizadores 
 
-Um evento (seja ele uma conferência, congresso, convenção, simpósio ou outro) gerenciado pelo sistema possui um nome específico, o local e data em que será realizado, a carga horária total, as atividades que o compõem e as pessoas inscritas, que podem ser palestrantes ou ouvintes.
+Um evento (seja ele uma conferência, congresso, convenção, simpósio ou outro) gerenciado pelo sistema possui um nome específico, o local, data em que será realizado, a data de término, o horário de início e a carga horária total.
 
-Cada palestrante deve ter número de CPF que o identifique, nome, regime de trabalho, função, instituição de ensino da qual ele faz parte e nome da apresentação que será ministrada.  Da mesma forma, cada ouvinte deve ser identificado pelo seu CPF, além de possuir nome,  conjunto de atividades que ele participará e valor total que deve ser pago para se inscrever no evento. 
+Uma atividade ela pode ser do tipo minicurso ou palestra, onde será solicitado o tema que será mostrado, a descrição, o palestrante (que uma vez já foi cadastrado) e um evento que será ministrado (no qual também já deve ter sido cadastrado).
 
-Os minicursos ofertados pelo evento devem ter um nome único, um tema ou área relacionada, por exemplo, um minicurso de Python é da área de programação, e um minicurso de sobremesas de Natal envolve temas como gastronomia e confeitaria. Além disso, é importante identificar o local (sala/módulo), público-alvo e duração ou carga horária relativos aos minicursos, bem como às palestras ou apresentações.
+Cada palestrante deve ter número de CPF que o identifique, nome, evento no qual será ministrado, e o tema que também será ministrado.
+
+Já o organizador, tem número de CPF que o identifique, nome, evento no qual fará parte da organização.
+
+O monitor também irá possuir um número de CPF que o identifique, nome, evento no qual realizará o auxílio.
+
+E por fim, há o ouvinte que terá a opção de exibir os eventos no qual está inserido e se inscrever nos eventos já existentes.
+
+Além disso, o aplicativo possui funcionalidades de mostrar eventos existentes, caso o usuário não queira se registrar e conferir se há algum evento que o interesse.
+Como organizador, terá acesso além do cadastro, exibir as pessoas/atividades/eventos/organizadores que foram cadastrados.
